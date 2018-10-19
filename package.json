@@ -1,0 +1,18 @@
+{
+  "name": "spotthefire",
+  "version": "1.0.0",
+  "description": "Nasa space application to detect the fires and send notifications",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.3.4",
+    "node-fetch": "^2.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "xayden",
+  "license": "MIT"
+}
