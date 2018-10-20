@@ -1,33 +1,33 @@
 # Spot the fire (Nasa Space Project)
 
-## Siging Arduino sample
+`GET` request to /api/notify/ returns all unnotified alerts
+`GET` request to /api/notify/ returns all alerts
 
-`PUT` request forwarded to /api/arduino/
+### Response Object
 
 ```javascript
-{
-  'id': #generated automatically,
-  'location': {
-    'long': Numerical Value,
-    'lat' : Numerical Value
+[
+  {
+    'id': String,
+    'message': String,
+    'notified': Boolean,
+    'current-location': {
+      'long': Number,
+      'lat' : Number
+    },
+    'fire-location': {
+      'long': Number,
+      'lat' : Number
+    }
+    'wind': {
+      'speed': Number,
+      'deg': Number
+    }
   }
-}
+]
 ```
 
-## Backend APIs
+`POST` requset to /api/notify/ automatically chooses a message and initiate notified to false, while currentLocation
+and firelocation are hardcoded for demonstration purpose.
 
-#### Google Place Search | Places API
-
-The following example shows a Find Place request for "Mongolian Grill", using the locationbias parameter to prefer results within 2000 meters of the specified coordinates:
-
-```javascript
-const API_KEY = '';
-const LNG = 47.6918452;
-const LAT = -122.2226413;
-const CIRCLE = 2000;
-const PLACE = 'fire station';
-
-const URL = `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${PLACE}&inputtype=textquery&fields=photos,formatted_address,name&locationbias=circle:${CIRCLE}@${LNG},${LAT}&key=${API_KEY}`;
-```
-
-#### Google Place Details | Places API
+`PUT` request to /api/notify/${alert id} will set notified to `true`
